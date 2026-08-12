@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import LenisScroll from "@/components/LenisScroll";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -34,7 +35,7 @@ export default function RootLayout({
           forcedTheme="dark"
           disableTransitionOnChange
         >
-          {children}
+          <LenisScroll>{children}</LenisScroll>
         </ThemeProvider>
       </body>
     </html>

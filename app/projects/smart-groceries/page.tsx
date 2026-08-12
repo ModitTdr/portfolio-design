@@ -2,13 +2,22 @@
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, Check, ChevronLeft, ChevronRight, X } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowUp,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  X,
+} from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import Typography from "@/components/atoms/Typography";
 import LenisScroll from "@/components/LenisScroll";
 import Navbar from "@/components/Navbar";
+import Button from "@/components/atoms/Button";
+import { useLenis } from "lenis/react";
 
 const wireframes = [
   {
@@ -151,6 +160,8 @@ export default function SmartGroceriesCaseStudy() {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [activeFinalIdx, setActiveFinalIdx] = useState(0);
   const [isFinalLightboxOpen, setIsFinalLightboxOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const lenis = useLenis();
 
   useEffect(() => {
     if (!isLightboxOpen) return;
@@ -175,6 +186,20 @@ export default function SmartGroceriesCaseStudy() {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isLightboxOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 600);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -207,9 +232,8 @@ export default function SmartGroceriesCaseStudy() {
   });
 
   return (
-    <LenisScroll>
+    <>
       <Navbar />
-
       <main className="min-h-screen bg-background text-foreground font-sans selection:bg-[#47C44C]/30 select-text overflow-hidden">
         {/* ==================== HERO ==================== */}
         <header className="relative w-full min-h-screen pt-48 pb-20 px-6 sm:px-12 flex flex-col justify-between items-center overflow-hidden">
@@ -1241,7 +1265,21 @@ export default function SmartGroceriesCaseStudy() {
             </Link>
           </div>
         </section>
+
+        {showScrollTop && (
+          <Button
+            onClick={() => {
+              lenis?.scrollTo(0, {
+                duration: 1.2,
+              });
+            }}
+            aria-label="Scroll to top"
+            className="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full border border-neutral-800 bg-neutral-950/90 backdrop-blur-sm flex items-center justify-center text-neutral-400 hover:text-white"
+          >
+            <ArrowUp className="w-5 h-5" />
+          </Button>
+        )}
       </main>
-    </LenisScroll>
+    </>
   );
 }
