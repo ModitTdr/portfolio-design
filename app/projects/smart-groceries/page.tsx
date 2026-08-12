@@ -14,7 +14,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import Typography from "@/components/atoms/Typography";
-import LenisScroll from "@/components/LenisScroll";
 import Navbar from "@/components/Navbar";
 import Button from "@/components/atoms/Button";
 import { useLenis } from "lenis/react";
@@ -237,6 +236,7 @@ export default function SmartGroceriesCaseStudy() {
       <main className="min-h-screen bg-background text-foreground font-sans selection:bg-[#47C44C]/30 select-text overflow-hidden">
         {/* ==================== HERO ==================== */}
         <header className="relative w-full min-h-screen pt-48 pb-20 px-6 sm:px-12 flex flex-col justify-between items-center overflow-hidden">
+          <div className="absolute inset-0 -top-200 z-0 bg-[radial-gradient(circle_at_center,#47C44C25_0%,#000_65%)]" />
           <div className="w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center items-center text-center z-10 px-4">
             <Typography
               tag="h1"
@@ -245,7 +245,7 @@ export default function SmartGroceriesCaseStudy() {
               ref={heroTitleRef}
               className="uppercase tracking-tight text-white"
             >
-              Smart<span className="text-[#47C44C]">Groceries</span>
+              Smart Groceries
             </Typography>
 
             <Typography
@@ -265,6 +265,13 @@ export default function SmartGroceriesCaseStudy() {
               people organize their shopping, understand their spending, and
               make more intentional purchasing decisions.
             </Typography>
+
+            <Link
+              href="https://www.figma.com/design/BBCnjgtqMoxk7W7Xd3q9lp/Smart-Grocery?node-id=0-1&t=RtxeFkqvRywNZH9Z-1"
+              target="_blank"
+            >
+              <Button className="px-6">View Figma</Button>
+            </Link>
 
             {/* Project Metadata */}
             <div
@@ -1255,13 +1262,20 @@ export default function SmartGroceriesCaseStudy() {
             everyday task into a clearer digital experience.
           </Typography>
 
-          <div className="pt-6">
+          <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,#47C44C25_0%,#000_65%)]" />
+          <div className="pt-6 flex flex-col items-center gap-8">
+            <Link
+              href="https://www.figma.com/design/BBCnjgtqMoxk7W7Xd3q9lp/Smart-Grocery?node-id=0-1&t=RtxeFkqvRywNZH9Z-1"
+              target="_blank"
+            >
+              <Button className="px-6 ml-6">View Figma</Button>
+            </Link>
             <Link
               href="/"
               className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-400 hover:text-white transition-colors cursor-pointer group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
-              <span>Back to selected work</span>
+              <span>Back to Homepage</span>
             </Link>
           </div>
         </section>

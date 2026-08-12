@@ -103,17 +103,25 @@ const Projects = () => {
                 projectRefs.current[index] = el;
               }}
             >
-              <div className="p-6 grid grid-cols-1 lg:grid-cols-[1.7fr_2fr_1.4fr_2fr] gap-4">
+              <div className="p-6 grid grid-cols-1 lg:grid-cols-[2fr_2fr_1.4fr_2fr] gap-4">
                 <div className="space-y-4 lg:space-y-6">
                   <Typography tag="h3" fontType="title3">
                     {project.title}
                   </Typography>
 
-                  {project.link && (
-                    <Link href={project.link} target="_blank">
-                      <Button>View Project</Button>
-                    </Link>
-                  )}
+                  <div className="flex flex-wrap gap-2">
+                    {project.link && (
+                      <Link href={project.link} target="_blank">
+                        <Button>View Figma</Button>
+                      </Link>
+                    )}
+
+                    {project.caseStudyLink && (
+                      <Link href={project.caseStudyLink}>
+                        <Button>View Case Study</Button>
+                      </Link>
+                    )}
+                  </div>
                 </div>
 
                 <div className="space-y-2 lg:space-y-4">
@@ -152,7 +160,7 @@ const Projects = () => {
                   <div
                     key={i}
                     className={`
-                      relative aspect-square overflow-hidden bg-muted
+                      relative aspect-video overflow-hidden bg-muted
                       ${i >= 2 ? "" : "border-b border-foreground/10"}
                       ${i % 2 === 0 ? "border-r border-foreground/10" : ""}
                     `}
@@ -161,7 +169,7 @@ const Projects = () => {
                       src={img}
                       alt={project.title}
                       fill
-                      className="object-cover"
+                      className="object-cover object-[50%_38%]"
                     />
                   </div>
                 ))}
