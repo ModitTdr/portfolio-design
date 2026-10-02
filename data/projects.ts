@@ -29,7 +29,7 @@ export const projects: Project[] = [
   },
 
   {
-    title: "Fashion",
+    title: "Aurel",
     category: "Visual Design · E-commerce",
     description:
       "An editorial fashion shopping experience built around strong typography, visual storytelling, and a refined product presentation.",
@@ -37,8 +37,8 @@ export const projects: Project[] = [
       "Fashion interfaces often rely heavily on conventional product grids. This concept explores how editorial layouts and visual hierarchy can create a more engaging shopping experience.",
     role: "Visual Design · UI Design",
     tools: ["Figma"],
-    link: "https://www.figma.com/design/2RS7E8h3heM6yAfKePzKuu/Myworks?node-id=2-4909&t=ghrvDuXVk30rhHGp-1",
-    images: ["/projects/fashion/img1.png", "/projects/fashion/img2.webp"],
+    link: "https://www.figma.com/design/38IwAVaURrXrfWqGh3ajUW/AUREL?node-id=0-1&t=boM7Yioe4hmxY8q9-1",
+    images: ["/projects/fashion/img1.png", "/projects/fashion/img2.png"],
   },
 
   {
